@@ -1,4 +1,4 @@
-module github.com/shiyunjin/MeMCache
+module github.com/shiyunjin/MemCache
 
 go 1.15
 
