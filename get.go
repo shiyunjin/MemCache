@@ -46,6 +46,10 @@ func (c *Cache) do(key string, value proto.Message, caller mm.CacheCaller, expir
 	calldo.val, calldo.err = caller()
 	calldo.wg.Done()
 
+	if calldo.err != nil {
+		expireSeconds = 1
+	}
+
 	defer func() {
 		// lock do mutex by delete do map
 		c.doMu.Lock()
